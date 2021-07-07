@@ -1,10 +1,8 @@
 # EXAMPLE VCR USAGE: RUN AND DELETE ME
 
-foo <- function() crul::ok('https://httpbin.org/get')
-
-test_that("foo works", {
-  vcr::use_cassette("testing", {
-    x <- foo()
+test_that("get_packages() works", {
+  vcr::use_cassette("packages", {
+    pkgs <- get_packages("maelle")
   })
-  expect_true(x)
+  expect_vector(pkgs, character())
 })
